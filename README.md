@@ -1,174 +1,133 @@
-# just-the-docs-template
+# 10 Días de Código con IA
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+Este repositorio contiene las notas del curso y los ejemplos de código del curso [10 Días de Python con IA]. El curso está dirigido a programadores curiosos de Vibe sin experiencia en programación que desean obtener una visión global de programación con tecnologías de IA y las habilidades para depurar, especificar y examinar el código que se produce principalmente con IA.
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+El curso ha sido creado en [Inglés] y traducido al [Español] y [Portugués]. 
 
-More specifically, the created site:
+El curso está enfocado principalmente al uso de [Visual Studio Code] y [Github Copilot]; y una gran parte de él usa python para automatización, llamadas a API, programación web, programación de IA y más.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+Las notas del curso se pueden encontrar en [notas del curso 10 Días de Código con IA] y los ejemplos de código en [ejemplos de código de git hub]. Una vez que [Visual Studio Code] y [python] estén instalados en su máquina, puede ejecutar los ejemplos simplemente escribiendo en su terminal:
 
-To get started with creating a site, simply:
+```python
+python <nombre_archivo>.py
+```
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+## Clonando el Repositorio
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+Si lo desea, puede instalar git en su vs code y clonar este repositorio en su máquina local.
 
-After completing the creation of your new site on GitHub, update it as needed:
+### Instalando Bash en Visual Studio Code
 
-## Replace the content of the template pages
+Si está en Windows y desea usar Bash en VS Code, puede instalar [Git para Windows](https://git-scm.com/download/win), que incluye Git Bash.
 
-Update the following files to your own content:
+1. Descargue e instale Git para Windows.
+2. Después de la instalación, abra VS Code.
+3. Presione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> y escriba `Terminal: Select Default Profile`.
+4. Elija `Git Bash` de la lista.
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+Ahora, cuando abra una nueva terminal en VS Code, usará Bash.
 
-## Changing the version of the theme and/or Jekyll
+> **Nota:** La instalación de Git para Windows también instalará Git Bash. No necesita instalar Git por separado. Git Bash se incluye como parte del paquete de instalación de Git.
 
-Simply edit the relevant line(s) in the `Gemfile`.
+### Crear un entorno virtual y activarlo
+Un **entorno virtual** en Python es un espacio de trabajo aislado que le permite instalar y administrar paquetes por separado de su instalación global de Python. Esto significa que cada proyecto puede tener sus propias dependencias, versiones y configuraciones sin interferir con otros proyectos o el Python del sistema.
 
-## Adding a plugin
+**¿Por qué usar un entorno virtual?**
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+- Aislamiento: Mantiene las dependencias del proyecto separadas, evitando conflictos entre los paquetes requeridos por diferentes proyectos.
+- Reproducibilidad: Facilita compartir su proyecto con otros, ya que puede especificar exactamente qué paquetes y versiones se necesitan.
+- Seguridad: Evita cambios accidentales en los paquetes de Python de todo el sistema.
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+Flujo de trabajo típico:
+- Crear un entorno virtual para su proyecto.
+- Activarlo antes de trabajar.
+- Instalar paquetes usando pip—estos solo van al entorno virtual.
+- Desactivar cuando haya terminado.
 
-- Add the following to your site's `Gemfile`:
+Este enfoque es especialmente útil en entornos colaborativos o de producción, asegurando la consistencia y minimizando los problemas de dependencia.
 
-  ```ruby
-  gem "jekyll-default-layout"
+Para crear un entorno virtual de Python, ejecute el siguiente comando en su terminal:
+
+```bash
+python -m venv venv
+```
+
+Esto creará un nuevo directorio llamado `venv` que contiene el entorno virtual.
+
+Para activar el entorno virtual:
+
+- En Windows:
+  ```bash
+  .\venv\Scripts\activate
+  ```
+- En macOS/Linux/terminal bash:
+  ```bash
+  source .venv/bin/activate
   ```
 
-- And add the following to your site's `_config.yml`:
+Una vez activado, puede instalar paquetes usando `pip` y estarán aislados en este entorno.
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+Para desactivar el entorno virtual de Python, simplemente ejecute:
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+```bash
+deactivate
+```
 
-## Publishing your site on GitHub Pages
+Esto devolverá su terminal al entorno global de Python.
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+### Clonar este repositorio
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+Para clonar este repositorio en su máquina local, abra su terminal y ejecute:
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+```bash
+git clone https://github.com/StructuralWizard/10DiasDePython_es.github.io.git
+```
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+Esto creará una copia local del repositorio en su directorio actual.
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
+### Instalar las dependencias de este repositorio
+Para instalar las dependencias enumeradas en `requirements.txt`, asegúrese de que su entorno virtual esté activado, luego ejecute:
 
-## Building and previewing your site locally
+```bash
+pip install -r requirements.txt
+```
 
-Assuming [Jekyll] and [Bundler] are installed on your computer:
+Esto instalará todos los paquetes de Python necesarios para el proyecto.
 
-1.  Change your working directory to the root directory of your site.
+### Ejecutar el sitio en un servidor local
+Este sitio ha sido creado usando el tema [Just the Docs] y alojado en [GitHub Pages]. Puede [Navegar por nuestra documentación] para obtener más información.
 
-2.  Run `bundle install`.
+Para visualizar el sitio de github en el navegador en lugar de editar su markdown, puede ejecutar `bundle exec jekyll serve` desde la carpeta principal de 10DaysOfCode donde tiene el archivo _config.yml.
 
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
+Suponiendo que [Jekyll] y [Bundler] están instalados en su computadora:
 
-    The built site is stored in the directory `_site`.
+1.  Cambie su directorio de trabajo al directorio raíz de su sitio.
 
-## Publishing your built site on a different platform
+2.  Ejecute `bundle install`.
 
-Just upload all the files in the directory `_site`.
+3.  Ejecute `bundle exec jekyll serve` para construir su sitio y previsualizarlo en `localhost:4000`.
 
-## Customization
+    El sitio construido se almacena en el directorio `_site`.
 
-You're free to customize sites that you create with this template, however you like!
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+Nota: Si está utilizando una versión de Jekyll inferior a 3.5.0, use la clave `gems` en lugar de `plugins`.
 
-## Hosting your docs from an existing project repo
 
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
-
-### Copy the template files
-
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
-
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
-
-### Modify the GitHub Actions workflow
-
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
-
-1.  Set the default `working-directory` param for the build job.
-
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
-
-2.  Set the `working-directory` param for the Setup Ruby step.
-
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
-
-3.  Set the path param for the Upload artifact step:
-
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/_site/
-    ```
-
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
-
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
-
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
+[Visual Studio Code]: https://code.visualstudio.com/
+[Github Copilot]: https://code.visualstudio.com/docs/copilot/overview
+[python]: https://www.python.org/downloads/
 [Jekyll]: https://jekyllrb.com
 [Just the Docs]: https://just-the-docs.github.io/just-the-docs/
 [GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
 [Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+[10 Días de Python con IA]: https://youtube.com/@10diasdepythonconia?si=WBjCQ5O0CzIxm8Mg
+[Structural Wizard]: https://github.com/StructuralWizard/ 
+[notas del curso 10 Días de Código con IA]: https://structuralwizard.github.io/10DiasDePython_es.github.io/
+[ejemplos de código de git hub]: https://github.com/StructuralWizard/10DiasDePython_es.github.io/tree/main/_python_code
+[Inglés]: https://structuralwizard.github.io/10DaysOfCode.github.io/
+[Español]: https://structuralwizard.github.io/10DiasDePython_es.github.io/
+[Portugués]: https://structuralwizard.github.io/10DiasDePython_pt.github.io/
